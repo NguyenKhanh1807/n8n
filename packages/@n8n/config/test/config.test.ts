@@ -62,6 +62,7 @@ describe('GlobalConfig', () => {
 					rejectUnauthorized: true,
 				},
 				user: 'postgres',
+				idleTimeoutMs: 30_000,
 			},
 			sqlite: {
 				database: 'database.sqlite',
@@ -72,6 +73,7 @@ describe('GlobalConfig', () => {
 			tablePrefix: '',
 			type: 'sqlite',
 			isLegacySqlite: true,
+			pingIntervalSeconds: 2,
 		},
 		credentials: {
 			defaultName: 'My credentials',
