@@ -1,3 +1,4 @@
+/// <reference types="cypress" />
 import { errorToast, successToast } from '../pages/notifications';
 
 /**
