@@ -56,7 +56,7 @@ const getDefaultFilter = (): ExecutionFilterType => ({
 	annotationTags: [],
 	startDate: '',
 	endDate: '',
-	metadata: [{ key: '', value: '' }],
+	metadata: [{ key: '', value: '', exactMatch: false }],
 	vote: 'all',
 });
 const filter = reactive(getDefaultFilter());
@@ -300,6 +300,18 @@ onBeforeMount(() => {
 					</span>
 				</n8n-tooltip>
 				<div :class="$style.subGroup">
+					<label for="execution-filter-saved-data-exact-match">{{
+						locale.baseText('executionsFilter.savedDataExactMatch')
+					}}</label>
+					<n8n-checkbox
+						id="execution-filter-saved-data-exact-match"
+						name="execution-filter-saved-data-exact-match"
+						:model-value="filter.metadata[0]?.exactMatch"
+						:disabled="!isAdvancedExecutionFilterEnabled"
+						data-test-id="execution-filter-saved-data-exact-match-checkbox"
+						@update:model-value="onFilterMetaChange(0, 'exactMatch', $event)"
+					>
+					</n8n-checkbox>
 					<label for="execution-filter-saved-data-key">{{
 						locale.baseText('executionsFilter.savedDataKey')
 					}}</label>
